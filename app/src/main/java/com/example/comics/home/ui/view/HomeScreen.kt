@@ -1,5 +1,6 @@
 package com.example.comics.home.ui.view
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
@@ -23,6 +24,7 @@ fun HomeScreen(
 ) {
     Column(
         modifier = Modifier
+            .background(color = Color.Red)
             .fillMaxSize()
             .verticalScroll(state = rememberScrollState())
     ) {
@@ -45,7 +47,7 @@ fun HomeScreen(
             }
 
             is UiState.Error -> {
-
+            Text(text = "Error", color = Color.Black)
             }
         }
     }
