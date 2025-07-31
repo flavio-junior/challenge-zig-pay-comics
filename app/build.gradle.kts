@@ -8,14 +8,13 @@ plugins {
 }
 
 android {
+    namespace = "com.example.comics"
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.comics"
-        namespace = "com.example.comics"
-        minSdk = 21
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = 24
+        targetSdk = 35
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
