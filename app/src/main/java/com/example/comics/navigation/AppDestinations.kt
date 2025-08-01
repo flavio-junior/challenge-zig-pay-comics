@@ -1,0 +1,15 @@
+package com.example.comics.navigation
+
+import kotlinx.serialization.Serializable
+
+sealed interface AppDestinations {
+
+    @Serializable
+    data object HomeScreen : AppDestinations
+
+    @Serializable
+    data class DetailsScreen(val movies: String) : AppDestinations
+
+    @Serializable
+    data object ErrorScreen : AppDestinations
+}

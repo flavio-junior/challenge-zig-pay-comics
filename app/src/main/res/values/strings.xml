@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Comics</string>
+    <string name="internal_error_system">Erro interno do sistema!</string>
+    <string name="try_again">Tentar novamente</string>
 </resources>
