@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -54,6 +55,7 @@ fun CardMovie(
             modifier = Modifier
                 .align(alignment = Alignment.TopStart)
                 .padding(all = SpaceSize.spaceSize8)
+                .testTag(tag = "title")
         )
         Row(
             horizontalArrangement = Arrangement.spacedBy(space = SpaceSize.spaceSize4),
@@ -73,7 +75,8 @@ fun CardMovie(
                 color = Color.White,
                 fontSize = FontSize.fontSize24,
                 fontStyle = FontStyle.Italic,
-                fontWeight = FontWeight.ExtraBold
+                fontWeight = FontWeight.ExtraBold,
+                modifier = Modifier.testTag(tag = "voteAverage")
             )
         }
         Text(
@@ -84,7 +87,8 @@ fun CardMovie(
             maxLines = 2,
             modifier = Modifier
                 .align(alignment = Alignment.BottomStart)
-                .padding(all = SpaceSize.spaceSize8),
+                .padding(all = SpaceSize.spaceSize8)
+                .testTag(tag = "overview"),
             textAlign = TextAlign.Justify
         )
     }
