@@ -37,9 +37,6 @@ fun HomeScreen(
             .verticalScroll(state = rememberScrollState())
     ) {
         val viewModel: ComicsViewModel = koinViewModel()
-        LaunchedEffect(Unit) {
-            viewModel.getTrendingMovies()
-        }
         val response: UiState<DataMoviesResponseVO> by viewModel.getTrendingMovies.collectAsStateWithLifecycle()
         when (response) {
             is UiState.Init -> Unit

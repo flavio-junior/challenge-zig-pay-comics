@@ -20,6 +20,10 @@ class ComicsViewModel(
     private val _getTrendingMovies = MutableStateFlow<UiState<DataMoviesResponseVO>>(UiState.Init)
     val getTrendingMovies = _getTrendingMovies.asStateFlow()
 
+    init {
+        getTrendingMovies()
+    }
+
     override fun getTrendingMovies() {
         viewModelScope.launch {
             theMovieDBRepository.getTrendingMovies().collect { response ->
