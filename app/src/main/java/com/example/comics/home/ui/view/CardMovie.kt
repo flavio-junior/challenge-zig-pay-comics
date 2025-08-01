@@ -24,19 +24,19 @@ import coil.compose.AsyncImage
 import com.example.comics.R
 import com.example.comics.components.FontSize
 import com.example.comics.components.SpaceSize
+import com.example.comics.components.onClickable
+import com.example.comics.home.data.vo.MoviesResponseVO
 
 private const val PATH_IMAGE = "https://image.tmdb.org/t/p/original/"
 
 @Composable
 fun CardMovie(
-    title: String? = null,
-    path: String? = null,
-    overview: String? = null,
-    voteAverage: Double? = null
+    moviesResponseVO: MoviesResponseVO,
+    onClick: () -> Unit = {}
 ) {
-    Box {
+    Box(modifier = Modifier.onClickable(onClick = onClick)) {
         AsyncImage(
-            model = "$PATH_IMAGE$path",
+            model = "$PATH_IMAGE${moviesResponseVO.backdropPath}",
             contentDescription = null,
             modifier = Modifier
                 .align(alignment = Alignment.Center)
@@ -46,7 +46,7 @@ fun CardMovie(
             contentScale = ContentScale.Crop
         )
         Text(
-            text = title.orEmpty(),
+            text = moviesResponseVO.title.orEmpty(),
             color = Color.White,
             fontSize = FontSize.fontSize24,
             fontStyle = FontStyle.Italic,
@@ -69,7 +69,7 @@ fun CardMovie(
                 modifier = Modifier.size(size = SpaceSize.spaceSize36)
             )
             Text(
-                text = voteAverage.toString(),
+                text = moviesResponseVO.voteAverage.toString(),
                 color = Color.White,
                 fontSize = FontSize.fontSize24,
                 fontStyle = FontStyle.Italic,
@@ -77,7 +77,7 @@ fun CardMovie(
             )
         }
         Text(
-            text = overview.orEmpty(),
+            text = moviesResponseVO.overview.orEmpty(),
             color = Color.White,
             fontSize = FontSize.fontSize20,
             fontWeight = FontWeight.Bold,
