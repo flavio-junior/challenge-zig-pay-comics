@@ -1,5 +1,6 @@
 package com.example.comics.components
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,6 +26,7 @@ import com.example.comics.R
 fun ErrorScreen(
     tryAgain: () -> Unit = {}
 ) {
+    BackHandler(onBack = tryAgain)
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,

@@ -16,7 +16,6 @@ fun NavigationGraphic(
     startDestination: AppDestinations = AppDestinations.HomeScreen
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
-
         composable<AppDestinations.HomeScreen> {
             HomeScreen(
                 goToDetailsScreen = {
@@ -40,7 +39,11 @@ fun NavigationGraphic(
         }
 
         composable<AppDestinations.ErrorScreen> {
-            ErrorScreen()
+            ErrorScreen(
+                tryAgain = {
+                    navController.popBackStack()
+                }
+            )
         }
     }
 }

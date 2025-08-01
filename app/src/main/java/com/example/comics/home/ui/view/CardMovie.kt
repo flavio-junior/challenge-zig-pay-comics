@@ -18,6 +18,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import com.example.comics.R
 import com.example.comics.components.FontSize
@@ -86,4 +88,18 @@ fun CardMovie(
             textAlign = TextAlign.Justify
         )
     }
+}
+
+@Composable
+@Preview(device = Devices.NEXUS_10, apiLevel = 35, showBackground = true, showSystemUi = true)
+private fun CardMovieScreenPreview() {
+    CardMovie(
+        moviesResponseVO = MoviesResponseVO(
+            backdropPath = "https://image.tmdb.org/t/p/original/iZLqwEwUViJdSkGVjePGhxYzbDb.jpg",
+            title = "War of the Worlds",
+            overview = "Will Radford is a top cyber-security analyst for Homeland Security who tracks potential threats to national security through a mass surveillance program, until one day an attack by an unknown entity leads him to question whether the government is hiding something from him... and from the rest of the world.",
+            posterPath = "https://image.tmdb.org/t/p/original/iZLqwEwUViJdSkGVjePGhxYzbDb.jpg",
+            voteAverage = 4.587
+        )
+    )
 }
