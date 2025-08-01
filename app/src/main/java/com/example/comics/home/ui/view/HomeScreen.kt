@@ -26,7 +26,8 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeScreen(
-    goToDetailsScreen: (AppDestinations.DetailsScreen) -> Unit = {}
+    goToDetailsScreen: (AppDestinations.DetailsScreen) -> Unit = {},
+    goToErrorScreen: () -> Unit = {}
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -62,7 +63,7 @@ fun HomeScreen(
             }
 
             is UiState.Error -> {
-                Text(text = "Error", color = Color.Black)
+                goToErrorScreen()
             }
         }
     }

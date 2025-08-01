@@ -9,4 +9,7 @@ sealed interface AppDestinations {
 
     @Serializable
     data class DetailsScreen(val movies: String) : AppDestinations
+
+    @Serializable
+    data object ErrorScreen : AppDestinations
 }
