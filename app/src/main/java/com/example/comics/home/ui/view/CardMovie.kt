@@ -35,7 +35,9 @@ fun CardMovie(
     onClick: (MoviesResponseVO) -> Unit = {}
 ) {
     Box(
-        modifier = Modifier.onClickable(onClick = { onClick(moviesResponseVO) })
+        modifier = Modifier
+            .onClickable(onClick = { onClick(moviesResponseVO) })
+            .testTag(tag = "onClick")
     ) {
         AsyncImage(
             model = "${HomeUtils.PATH_IMAGE}${moviesResponseVO.backdropPath}",

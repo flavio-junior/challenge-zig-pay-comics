@@ -4,11 +4,15 @@ import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import com.example.comics.home.data.vo.MoviesResponseVO
 import com.example.comics.mocks.mockMovie
 import org.junit.Rule
 import org.junit.Test
 
 class CardMovieKtTest {
+
+    private var itemSelected: MoviesResponseVO? = null
 
     @get:Rule
     val composeTestRule = createComposeRule()
@@ -16,8 +20,16 @@ class CardMovieKtTest {
     @Test
     fun whenTheApiReturnsSuccessfulVerifyContentOfCardIsValid() {
         composeTestRule.setContent {
-            CardMovie(moviesResponseVO = mockMovie)
+            CardMovie(
+                moviesResponseVO = mockMovie,
+                onClick = { movie -> itemSelected = movie }
+            )
         }
+
+        composeTestRule.onNodeWithTag(testTag = "onClick", useUnmergedTree = true)
+            .assertExists()
+            .performClick()
+        assert(value = itemSelected?.title == mockMovie.title)
 
         composeTestRule.onNodeWithTag(testTag = "title", useUnmergedTree = true)
             .assertExists()
