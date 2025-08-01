@@ -1,5 +1,8 @@
 package com.example.comics.home.data.vo
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class MoviesResponseVO(
     val backdropPath: String? = null,
     val title: String? = null,

@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.example.comics.home.ui.view.DetailsScreen
 import com.example.comics.home.ui.view.HomeScreen
 
@@ -18,13 +19,16 @@ fun NavigationGraphic(
         composable<AppDestinations.HomeScreen> {
             HomeScreen(
                 goToDetailsScreen = {
-                    navController.navigate(route = AppDestinations.DetailsScreen)
+                    navController.navigate(route = it)
                 }
             )
         }
 
-        composable<AppDestinations.DetailsScreen> {
+        composable<AppDestinations.DetailsScreen> { backStackEntry ->
+            val route: AppDestinations.DetailsScreen =
+                backStackEntry.toRoute<AppDestinations.DetailsScreen>()
             DetailsScreen(
+                moviesResponseVO = route.movies.fromJson(),
                 goToPreviousScreen = {
                     navController.popBackStack()
                 }

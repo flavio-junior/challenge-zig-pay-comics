@@ -1,6 +1,5 @@
 package com.example.comics.home.ui.view
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -19,30 +18,29 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.comics.R
 import com.example.comics.components.FontSize
 import com.example.comics.components.SpaceSize
 import com.example.comics.components.onClickable
 import com.example.comics.home.data.vo.MoviesResponseVO
-
-private const val PATH_IMAGE = "https://image.tmdb.org/t/p/original/"
+import com.example.comics.home.utils.HomeUtils
 
 @Composable
 fun CardMovie(
     moviesResponseVO: MoviesResponseVO,
-    onClick: () -> Unit = {}
+    onClick: (MoviesResponseVO) -> Unit = {}
 ) {
-    Box(modifier = Modifier.onClickable(onClick = onClick)) {
+    Box(
+        modifier = Modifier.onClickable(onClick = { onClick(moviesResponseVO) })
+    ) {
         AsyncImage(
-            model = "$PATH_IMAGE${moviesResponseVO.backdropPath}",
+            model = "${HomeUtils.PATH_IMAGE}${moviesResponseVO.backdropPath}",
             contentDescription = null,
             modifier = Modifier
                 .align(alignment = Alignment.Center)
-                .background(color = Color.Blue)
                 .fillMaxWidth()
-                .height(height = 300.dp),
+                .height(height = SpaceSize.spaceSize300),
             contentScale = ContentScale.Crop
         )
         Text(

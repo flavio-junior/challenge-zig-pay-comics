@@ -8,5 +8,5 @@ sealed interface AppDestinations {
     data object HomeScreen : AppDestinations
 
     @Serializable
-    data object DetailsScreen : AppDestinations
+    data class DetailsScreen(val movies: String) : AppDestinations
 }

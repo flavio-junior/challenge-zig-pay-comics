@@ -19,12 +19,14 @@ import com.example.comics.components.CircleLoader
 import com.example.comics.components.SpaceSize
 import com.example.comics.home.data.vo.DataMoviesResponseVO
 import com.example.comics.home.ui.viewmodel.ComicsViewModel
+import com.example.comics.navigation.AppDestinations
+import com.example.comics.navigation.toJson
 import com.example.comics.network.resources.UiState
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeScreen(
-    goToDetailsScreen: () -> Unit = {}
+    goToDetailsScreen: (AppDestinations.DetailsScreen) -> Unit = {}
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -54,7 +56,9 @@ fun HomeScreen(
                     if (it.title != null) {
                         CardMovie(
                             moviesResponseVO = it,
-                            onClick = goToDetailsScreen
+                            onClick = {
+                                goToDetailsScreen(AppDestinations.DetailsScreen(movies = it.toJson()))
+                            }
                         )
                     }
                 }
