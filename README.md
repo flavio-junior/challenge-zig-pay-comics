@@ -16,6 +16,10 @@
   - **Description: ` Main Developer `**
   - **Contact: ` flaviojunior.work@gmail.com `**
 
+# screenshots
+<img width="1080" height="2408" alt="Image" src="https://github.com/user-attachments/assets/b9f8f566-c322-4542-9b12-d21e80c14e28" />
+<img width="1080" height="2408" alt="Image" src="https://github.com/user-attachments/assets/5337e58f-9849-4ee1-8981-6c3432c7f88d" />
+
 ### Git - Accepted Standards for Commits and Pull Requests:
 - **feat:** **` Used when creating or adding a new feature. `**
 - **fix:** **`  Used when fixing a bug in the project. `**
