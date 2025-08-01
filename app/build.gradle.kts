@@ -101,6 +101,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.ui.test.junit4)
     androidTestImplementation(libs.androidx.navigation.testing)
+    androidTestImplementation(kotlin("test"))
     testImplementation(libs.junit)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
