@@ -24,7 +24,8 @@ class ConverterMovies {
             backdropPath = moviesResponseDTO?.backdropPath,
             title = moviesResponseDTO?.title,
             overview = moviesResponseDTO?.overview,
-            posterPath = moviesResponseDTO?.posterPath
+            posterPath = moviesResponseDTO?.posterPath,
+            voteAverage = moviesResponseDTO?.voteAverage
         )
     }
 }

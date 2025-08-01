@@ -10,5 +10,7 @@ data class MoviesResponseDTO(
     val title: String? = null,
     val overview: String? = null,
     @SerialName(value = "poster_path")
-    val posterPath: String? = null
+    val posterPath: String? = null,
+    @SerialName(value = "vote_average")
+    val voteAverage: Double? = 0.0
 )

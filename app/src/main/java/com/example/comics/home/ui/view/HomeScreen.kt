@@ -42,12 +42,17 @@ fun HomeScreen(
 
             is UiState.OnSuccess -> {
                 (response as UiState.OnSuccess<DataMoviesResponseVO>).response.results?.map {
-                    Text(text = it.title.orEmpty(), color = Color.Black)
+                    CardMovie(
+                        title = it.title,
+                        path = it.backdropPath,
+                        overview = it.overview,
+                        voteAverage = it.voteAverage
+                    )
                 }
             }
 
             is UiState.Error -> {
-            Text(text = "Error", color = Color.Black)
+                Text(text = "Error", color = Color.Black)
             }
         }
     }
