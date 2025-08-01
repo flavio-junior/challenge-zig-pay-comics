@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -52,6 +53,7 @@ fun DetailsScreen(
                 tint = Color.White,
                 modifier = Modifier
                     .onClickable(onClick = goToPreviousScreen)
+                    .testTag(tag = "onClick")
                     .size(size = SpaceSize.spaceSize36)
             )
             Text(
@@ -60,7 +62,9 @@ fun DetailsScreen(
                 fontSize = FontSize.fontSize24,
                 fontStyle = FontStyle.Italic,
                 fontWeight = FontWeight.ExtraBold,
-                modifier = Modifier.weight(weight = 0.1f)
+                modifier = Modifier
+                    .testTag(tag = "title")
+                    .weight(weight = 0.1f)
             )
         }
         Text(
@@ -70,6 +74,7 @@ fun DetailsScreen(
             fontWeight = FontWeight.Bold,
             modifier = Modifier
                 .align(alignment = Alignment.BottomStart)
+                .testTag(tag = "overview")
                 .padding(all = SpaceSize.spaceSize24),
             textAlign = TextAlign.Justify
         )
